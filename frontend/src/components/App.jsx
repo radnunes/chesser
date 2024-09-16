@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../css/App.css'
 import NavBar from './NavBar';
+import Login from './Login';
 
 function App() {
   const [data, setData] = useState(0);
@@ -14,8 +15,7 @@ function App() {
 
   return (
     <>
-    <NavBar />
-      <p>{!data ? "Loading..." : data}</p> 
+      <Login />
     </>
   )
 }

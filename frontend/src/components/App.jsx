@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../css/App.css'
+import NavBar from './NavBar';
 
 function App() {
   const [data, setData] = useState(0);
 
+  
   useEffect(() => {
     fetch('http://localhost:3001/api')
       .then((res) => res.json())
@@ -12,7 +14,8 @@ function App() {
 
   return (
     <>
-      <p>{!data ? "Loading..." : data}</p>
+    <NavBar />
+      <p>{!data ? "Loading..." : data}</p> 
     </>
   )
 }

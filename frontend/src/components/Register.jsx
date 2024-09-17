@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 
 export default function Example() {
     return (
@@ -45,11 +46,22 @@ export default function Example() {
                   <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
                     Password
                   </label>
-                  <div className="text-sm">
-                    <a href="#" className="font-semibold text-indigo-600 hover:text-indigo-500">
-                      Forgot password?
-                    </a>
-                  </div>
+                </div>
+                <div className="mt-2">
+                  <input
+                    id="password"
+                    name="password"
+                    type="password"
+                    required
+                    autoComplete="current-password"
+                    className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                  />
+                </div>
+
+                <div className="flex items-center justify-between mt-2">
+                  <label htmlFor="password" className="block text-sm font-medium leading-6 text-gray-900">
+                    Confirm Password
+                  </label>
                 </div>
                 <div className="mt-2">
                   <input
@@ -75,9 +87,9 @@ export default function Example() {
   
             <p className="mt-10 text-center text-sm text-gray-500">
               Already a member?{' '}
-              <a href="#" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
+              <Link to="/login" className="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">
                 Login
-              </a>
+              </Link>
             </p>
           </div>
         </div>

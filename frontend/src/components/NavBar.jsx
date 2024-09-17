@@ -1,17 +1,19 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Link } from 'react-router-dom'
+import UserPhoto from '../assets/images/logged_off_user.png'
+import ChesserLogo from '../assets/images/chesser_logo.png'
 
 
 const user = {
   name: 'Tom Cook',
   email: 'tom@example.com',
-  imageUrl:
-    'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80',
+  imageUrl: UserPhoto
+    
 }
 const navigation = [
   { name: 'Home', href: '/', current: false },
-  { name: 'Login', href: '/login', current: false },
+  { name: 'News', href: '/login', current: false },
   { name: 'Register', href: '/register', current: false },
   { name: 'Calendar', href: '#', current: false },
   { name: 'Reports', href: '#', current: false },
@@ -51,7 +53,7 @@ export default function Example() {
                 <div className="flex-shrink-0">
                   <img
                     alt="Your Company"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
+                    src={ChesserLogo}
                     className="h-8 w-8"
                   />
                 </div>
@@ -99,12 +101,12 @@ export default function Example() {
                     >
                       {loggedOffUserNavigation.map((item) => (
                         <MenuItem key={item.name}>
-                          <a
-                            href={item.href}
+                          <Link
+                            to={item.href}
                             className="block px-4 py-2 text-sm text-gray-700 data-[focus]:bg-gray-100"
                           >
                             {item.name}
-                          </a>
+                          </Link>
                         </MenuItem>
                       ))}
                     </MenuItems>
@@ -129,7 +131,7 @@ export default function Example() {
                 <DisclosureButton
                   key={item.name}
                   as="a"
-                  href={item.href}
+                  to={item.href}
                   aria-current={item.current ? 'page' : undefined}
                   className={classNames(
                     item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
@@ -163,7 +165,7 @@ export default function Example() {
                   <DisclosureButton
                     key={item.name}
                     as="a"
-                    href={item.href}
+                    to={item.href}
                     className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-700 hover:text-white"
                   >
                     {item.name}

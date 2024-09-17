@@ -16,7 +16,7 @@ const navigation = [
   { name: 'News', href: '/login', current: false },
   { name: 'Register', href: '/register', current: false },
   { name: 'Calendar', href: '#', current: false },
-  { name: 'Reports', href: '#', current: false },
+  { name: 'About Us', href: '/about', current: false },
 ]
 const loggedInUserNavigation = [
   { name: 'Your Profile', href: '#' },

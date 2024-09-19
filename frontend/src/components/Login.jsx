@@ -1,34 +1,29 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 
 export default function Login() {
-  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
 
-  useEffect(() => {
-    axios.get('http://localhost:3001/api')
-      .then(response => {
-        console.log(response.data);
-      })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
-  }, []); // Empty dependency array ensures this runs only once
 
   const handleSubmit = async (e) => {
     e.preventDefault(); // Prevent the default form submission
-
+  
+    console.log('Submitting with email:', email, 'and password:', password); // Debugging
+  
     try {
-      const response = await axios.post('http://localhost:3001/login', { username, password });
+      const response = await axios.post('http://localhost:3001/login', { email, password });
       localStorage.setItem('token', response.data.token);
       // Redirect or handle successful login here
+      console.log("Successful Login")
     } catch (error) {
-      setError('Invalid credentials:');
-      console.log(error)
+      console.error('Error during login:', error); // Log the error
+      setError('Invalid credentials');
     }
   };
+  
 
   return (
     <>
@@ -47,18 +42,18 @@ export default function Login() {
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium leading-6 text-gray-900">
-                Username
+              <label htmlFor="email" className="block text-sm font-medium leading-6 text-gray-900">
+                Email
               </label>
               <div className="mt-2">
                 <input
-                  id="username"
-                  name="username"
+                  id="email"
+                  name="email"
                   type="text"
                   required
-                  autoComplete="username"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
+                  autoComplete="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
                   className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                 />
               </div>

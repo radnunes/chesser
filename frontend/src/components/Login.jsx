@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useAuth } from '../../authContext.jsx';
 
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+
+  const { setIsAuthenticated } = useAuth();
 
 
   const handleSubmit = async (e) => {
@@ -18,6 +21,7 @@ export default function Login() {
       localStorage.setItem('token', response.data.token);
       // Redirect or handle successful login here
       console.log("Successful Login")
+      setIsAuthenticated(true); 
     } catch (error) {
       console.error('Error during login:', error); // Log the error
       setError('Invalid credentials');

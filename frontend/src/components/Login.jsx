@@ -14,7 +14,7 @@ export default function Login() {
     console.log('Submitting with email:', email, 'and password:', password); // Debugging
   
     try {
-      const response = await axios.post('http://localhost:3001/login', { email, password });
+      const response = await axios.post('http://localhost:3001/auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
       // Redirect or handle successful login here
       console.log("Successful Login")

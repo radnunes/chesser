@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "devStart": "nodemon server.js",
+    "devStart2": "nodemon auth.js",
+    "devStart3": "nodemon auth.js && nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

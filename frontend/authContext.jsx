@@ -10,11 +10,17 @@ export const AuthProvider = ({ children }) => {
   // Check for JWT token in localStorage when the provider mounts
   React.useEffect(() => {
     const token = localStorage.getItem('token');
-    setIsAuthenticated(!!token);
+    setIsAuthenticated(!!token); // Set auth based on token presence
   }, []);
 
+  // Logout function to remove token and update auth state
+  const logout = () => {
+    localStorage.removeItem('token'); // Clear token
+    setIsAuthenticated(false); // Update state
+  };
+
   return (
-    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated }}>
+    <AuthContext.Provider value={{ isAuthenticated, setIsAuthenticated, logout }}>
       {children}
     </AuthContext.Provider>
   );

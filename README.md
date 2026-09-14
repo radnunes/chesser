@@ -10,6 +10,14 @@ Instant browser chess rooms with no account required.
 - Use clocks, increments, draw offers, resignation, rematches, and legal-move highlights.
 - Choose a chess mode from the match setup screen. Variant metadata is stored with rooms; the current move engine still uses standard chess rules.
 
+## Decisions and Lessons Learned
+
+A few important trade-offs shaped this project. I kept the room model simple and in-memory so the app stays easy to run locally and avoids the extra complexity of accounts, persistence, and database setup for an MVP. I also chose a lightweight real-time architecture with Socket.IO and browser-based room links because the core goal was instant play without friction, not building a large multiplayer platform from day one.
+
+I had to decide what to prioritize for user experience: legal-move highlighting, time controls, draw/resign flows, and quick rematches all make the game feel polished and reduce confusion, especially in a browser-first chess app. I also made the match setup screen flexible enough to support variants in the future, even though the actual move validation still follows standard chess rules for now. That keeps the codebase extensible without forcing a full rewrite of the engine or room model.
+
+The biggest lesson was that real-time game projects are as much about state management and UX as they are about chess logic. Keeping room state predictable, making flows obvious, and reducing setup friction mattered just as much as getting moves to work correctly. I also learned that defining a clear scope early is important: it is much easier to add features later when the foundation is intentionally simple and well-structured.
+
 ## Requirements
 
 - Node.js 18 or newer

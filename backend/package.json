@@ -4,6 +4,7 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
+    "dev": "node server.js",
     "devStart": "nodemon server.js",
     "devStart2": "nodemon auth.js",
     "devStart3": "nodemon auth.js && nodemon server.js",
@@ -14,11 +15,13 @@
   "description": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chess.js": "^1.0.0",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "jsonwebtoken": "^9.0.2",
-    "pg": "^8.13.0"
+    "pg": "^8.13.0",
+    "socket.io": "^4.8.1"
   },
   "devDependencies": {
     "nodemon": "^3.1.5"

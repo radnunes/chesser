@@ -12,11 +12,11 @@ Instant browser chess rooms with no account required.
 
 ## Decisions and Lessons Learned
 
-A few important trade-offs shaped this project. I kept the room model simple and in-memory so the app stays easy to run locally and avoids the extra complexity of accounts, persistence, and database setup for an MVP. I also chose a lightweight real-time architecture with Socket.IO and browser-based room links because the core goal was instant play without friction, not building a large multiplayer platform from day one.
+A few important choices shaped this project. I kept the game rooms simple and stored them in memory so the app is easy to run locally and does not need accounts, a database, or extra setup for an early version. I also chose a lightweight real-time setup with Socket.IO and browser-based room links because the main goal was to make it easy to start a game quickly, not to build a large multiplayer platform from day one.
 
-I had to decide what to prioritize for user experience: legal-move highlighting, time controls, draw/resign flows, and quick rematches all make the game feel polished and reduce confusion, especially in a browser-first chess app. I also made the match setup screen flexible enough to support variants in the future, even though the actual move validation still follows standard chess rules for now. That keeps the codebase extensible without forcing a full rewrite of the engine or room model.
+I had to decide what mattered most for the player experience. Things like showing legal moves, time controls, draw and resign options, and quick rematches make the game feel smoother and easier to understand. I also set up the match screen so it can support different chess variants later, even though the actual rules for moves still follow standard chess for now. That gives the project room to grow without rewriting the whole setup.
 
-The biggest lesson was that real-time game projects are as much about state management and UX as they are about chess logic. Keeping room state predictable, making flows obvious, and reducing setup friction mattered just as much as getting moves to work correctly. I also learned that defining a clear scope early is important: it is much easier to add features later when the foundation is intentionally simple and well-structured.
+The biggest lesson was that real-time games are not just about chess rules. They are also about keeping the game state consistent, making the flow obvious, and reducing friction for the user. I learned that it is better to keep the first version focused and simple, because it is much easier to add features later when the foundation is solid.
 
 ## Requirements
 
